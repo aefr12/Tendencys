@@ -1,0 +1,7 @@
+<h1 class="text-center">
+    Lista de Ordenes
+</h1>
+<hr>
+<ul (click)="verProductos( orden.number )" class="list-group" *ngFor="let orden of dataItems">
+    <li class="list-group-item text-center">{{ orden.number }}</li>
+</ul>

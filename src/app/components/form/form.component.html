@@ -1,0 +1,34 @@
+<div class="card text-center">
+    <div class="card-header">
+        NUEVO PRODUCTO - ORDEN #{{ number }}
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="guardar( producto )" #producto="ngForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" [class.is-invalid]="name.invalid && name.touched" ngModel required #name="ngModel">
+                <small class="form-text text-danger" *ngIf="name.invalid && name.touched">Ingrese un valor</small>
+            </div>
+            <div class="form-group">
+                <label for="sku">Sku</label>
+                <input type="text" class="form-control" id="sku" name="sku" [class.is-invalid]="sku.invalid && sku.touched" ngModel required #sku="ngModel">
+                <small class="form-text text-danger" *ngIf="sku.invalid && sku.touched">Ingrese un valor</small>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="price" name="price" [class.is-invalid]="price.invalid && price.touched" ngModel required #price="ngModel">
+                <small class="form-text text-danger" *ngIf="price.invalid && price.touched">Ingrese un valor</small>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="text" class="form-control" id="quantity" name="quantity" [class.is-invalid]="quantity.invalid && quantity.touched" ngModel required #quantity="ngModel">
+                <small class="form-text text-danger" *ngIf="quantity.invalid && quantity.touched">Ingrese un valor</small>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">AGREGAR</button>
+        </form>
+    </div>
+    <div class="card-footer text-muted align-center">
+        {{ fecha | date }}
+    </div>
+</div>

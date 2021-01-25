@@ -1,0 +1,52 @@
+<div class="card text-center">
+    <div class="card-header">
+        Orden #{{ number }}
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"># ORDEN</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">SKU</th>
+                    <th scope="col">PRICE</th>
+                    <th scope="col">QUANTITY</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <th scope="row">{{ number }}</th>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.sku }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.quantity }}</td>
+                </tr>
+                <tr *ngFor="let add of addProducts">
+                    <th scope="row" *ngIf="add.number === number">{{ add.number }}</th>
+                    <td *ngIf="add.number === number">{{ add.name }}</td>
+                    <td *ngIf="add.number === number">{{ add.sku }}</td>
+                    <td *ngIf="add.number === number">{{ add.price }}</td>
+                    <td *ngIf="add.number === number">{{ add.quantity }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer text-muted align-center">
+        <button type="button" class="btn btn-outline-primary" (click)="nuevoProducto( number )">Agregar Producto</button> &nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#pagado">Pagar Orden</button>
+    </div>
+</div>
+
+<div class="modal fade" id="pagado" tabindex="-1" aria-labelledby="pagadoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pagadoLabel">Pago Realizado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                La orden #{{ number }} fue pagada!
+            </div>
+        </div>
+    </div>
+</div>
